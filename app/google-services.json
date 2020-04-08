@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "693164174710",
+    "firebase_url": "https://aai2020.firebaseio.com",
+    "project_id": "aai2020",
+    "storage_bucket": "aai2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693164174710:android:8f0c5aee24c4dfa82b5e57",
+        "android_client_info": {
+          "package_name": "com.example.airport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693164174710-hq20k3b0dsvoc2i3dg39h2dmq856tmri.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.airport",
+            "certificate_hash": "952191ba48654d6da7cf5776c681a0c5958d8719"
+          }
+        },
+        {
+          "client_id": "693164174710-6lcv5o7v2cqmsunmjp4sq5uf1nguj16b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHVgnIAOc2_NaPht75-6FRGX2QI3GQWaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693164174710-6lcv5o7v2cqmsunmjp4sq5uf1nguj16b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693164174710:android:deacdec16d45033c2b5e57",
+        "android_client_info": {
+          "package_name": "com.example.airportauthorityofindia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693164174710-g7lqg46v903fhj1di1057i0mnvjbed8l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.airportauthorityofindia",
+            "certificate_hash": "952191ba48654d6da7cf5776c681a0c5958d8719"
+          }
+        },
+        {
+          "client_id": "693164174710-6lcv5o7v2cqmsunmjp4sq5uf1nguj16b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHVgnIAOc2_NaPht75-6FRGX2QI3GQWaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693164174710-6lcv5o7v2cqmsunmjp4sq5uf1nguj16b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
