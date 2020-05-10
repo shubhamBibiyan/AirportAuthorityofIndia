@@ -4,6 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ScanCodeActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="409dp"
+        android:layout_height="400dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="73dp">
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

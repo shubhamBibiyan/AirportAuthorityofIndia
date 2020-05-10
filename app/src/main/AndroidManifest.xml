@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Product_details"></activity>
+        <activity android:name=".Management">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".Welcome_page"></activity>
+        <activity android:name=".Product_details" />
         <activity android:name=".QRGenerator" />
         <activity android:name=".Item_Info" />
         <activity android:name=".Staff_Data" />
@@ -20,11 +27,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Signup_Form" />
         <activity android:name=".Login_Form">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

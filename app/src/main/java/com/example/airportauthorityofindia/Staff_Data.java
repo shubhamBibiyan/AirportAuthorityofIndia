@@ -27,6 +27,7 @@ public class Staff_Data extends AppCompatActivity {
     ProgressBar mUpdate_Load;
     Button mUpdateBtn;
     String gender = "";
+    String id;
     private FirebaseAuth fAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -119,7 +120,9 @@ public class Staff_Data extends AppCompatActivity {
                 information.setAirport(airport);
                 information.setLocation(location);
 
-                databaseReference.child(String.valueOf(maxID+1)).setValue(information);
+                id = empid;
+
+                databaseReference.child(String.valueOf(id)).setValue(information);
 
                 //Original Code
                 // databaseReference.push().setValue(information);

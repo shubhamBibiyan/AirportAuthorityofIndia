@@ -1,42 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Technician">
+    tools:context=".Management">
+
+    // Scan QR Code
 
     <Button
-        android:id="@+id/btn_scan"
+        android:id="@+id/mgbtn_scan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50sp"
-        android:background="@drawable/rounded_button"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="50sp"
         android:layout_marginRight="50dp"
+        android:background="@drawable/rounded_button"
         android:text="Scan Qr Code"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    //Generate QR Code
 
-    <TextView
-        android:id="@+id/result_text"
+    <Button
+        android:id="@+id/mgbtn_gen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10sp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="Generate Qr Code"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    // Result Text Box
+
+    <TextView
+        android:id="@+id/mgresult_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:hint="Result"
         android:textColorHint="#FF6C02"
         android:textSize="22sp" />
 
+    //Find Button
+
     <Button
-        android:id="@+id/find_item"
+        android:id="@+id/mgfind_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="50dp"
         android:background="@drawable/rounded_button"
         android:text="Find"
@@ -44,6 +64,7 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    // Product ID
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,15 +73,15 @@
         android:textColorHint="@color/colorAccent">
 
         <TextView
-            android:id="@+id/db_Productid"
+            android:id="@+id/mgdb_Productid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:hint="Product ID"
             android:textColorHint="#FF6C02"
             android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    // Product Name
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,15 +90,15 @@
         android:textColorHint="@color/colorAccent">
 
         <TextView
-            android:id="@+id/db_Productname"
+            android:id="@+id/mgdb_Productname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:hint="Product Name"
             android:textColorHint="#FF6C02"
             android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    // Product Description
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,15 +107,15 @@
         android:textColorHint="@color/colorAccent">
 
         <TextView
-            android:id="@+id/db_Productdesc"
+            android:id="@+id/mgdb_Productdesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:hint="Product Description"
             android:textColorHint="#FF6C02"
             android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    // Date of installation
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,60 +124,12 @@
         android:textColorHint="@color/colorAccent">
 
         <TextView
-            android:id="@+id/db_Dateofinstall"
+            android:id="@+id/mgdb_Dateofinstall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:hint="Date of Installation"
             android:textColorHint="#FF6C02"
             android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:textColorHint="@color/colorAccent">
-    <EditText
-        android:id="@+id/maintainedOn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Maintained on Date"
-        android:ems="10"
-        android:textSize="22sp"
-        android:textColorHint="@color/colorAccent"
-        android:inputType="date" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:textColorHint="@color/colorAccent">
-    <EditText
-        android:id="@+id/problemfixed"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="22sp"
-        android:hint="What problem is fixed?"
-        android:textColorHint="@color/colorAccent"
-        android:gravity="start|top"
-        android:inputType="textMultiLine" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/submit_report"
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/rounded_button"
-        android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="Submit" />
 </LinearLayout>

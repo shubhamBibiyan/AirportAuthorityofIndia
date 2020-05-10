@@ -3,6 +3,7 @@ package com.example.airportauthorityofindia;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
@@ -23,13 +24,15 @@ import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 
 public class QRGenerator extends AppCompatActivity {
-    EditText et1;
+    public EditText et1;
     Button b1, b2;
     ImageView img;
-    private FirebaseAuth fAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     long maxID = 10;
+    public String  qrCodeID;
+    Products pro;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class QRGenerator extends AppCompatActivity {
         b1 = findViewById(R.id.b1);
         b2 = findViewById(R.id.b2);
         img = findViewById(R.id.img);
-        fAuth = FirebaseAuth.getInstance();
+        pro = new Products();
 
         databaseReference = firebaseDatabase.getInstance().getReference().child("Product");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -91,8 +94,14 @@ public class QRGenerator extends AppCompatActivity {
                 if(productID.isEmpty()){
                     et1.setError("Value Required");
                 }else{
-                    databaseReference.child(String.valueOf(maxID+1)).setValue(productID);
+                    pro.setProId(productID);
+                    qrCodeID = productID;
+                    databaseReference.child(String.valueOf(qrCodeID)).setValue(pro);
                     Toast.makeText(QRGenerator.this, "Data is successfully added.",Toast.LENGTH_SHORT).show();
+                    String passedQr = et1.getText().toString();
+                    Intent intent = new Intent(QRGenerator.this, Product_details.class);
+                    intent.putExtra("Passed_id", passedQr);
+                    startActivity(intent);
                 }
             }
         });

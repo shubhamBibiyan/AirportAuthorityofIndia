@@ -62,7 +62,7 @@ public class Login_Form extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         mLog_Load.setVisibility(View.VISIBLE);
                         if(task.isSuccessful()){
-                            startActivity(new Intent(getApplicationContext(), Technician.class));
+                            startActivity(new Intent(getApplicationContext(), Welcome_page.class));
                         }else{
                             Toast.makeText(Login_Form.this, "Email/Password is incorrect.", Toast.LENGTH_SHORT).show();
                         }

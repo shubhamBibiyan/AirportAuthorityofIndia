@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,8 +22,12 @@ import com.google.firebase.database.ValueEventListener;
 public class Technician extends AppCompatActivity {
     public static TextView resultTextView;
     TextView mdb_Productid, mdb_Productname, mdb_Productdesc, mdb_Dateofinstall, mcustomsearch;
-    Button scan_btn, mfind_item, mbtn_gen;
+    EditText maintainedOn_tech, problem_desc_tech;
+    Button scan_btn, mfind_item, submit_tech;
     DatabaseReference databaseReference;
+    FirebaseDatabase firebaseDatabase;
+    maintainance maintainanceReport;
+    long max = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +36,6 @@ public class Technician extends AppCompatActivity {
         //Scanning QR code
         resultTextView = findViewById(R.id.result_text);
         scan_btn       = findViewById(R.id.btn_scan);
-        mbtn_gen       = findViewById(R.id.btn_gen);
 
         scan_btn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -39,14 +44,11 @@ public class Technician extends AppCompatActivity {
             }
         });
 
-        mbtn_gen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity( new Intent(getApplicationContext(),QRGenerator.class ));
-            }
-        });
 
-
+        maintainedOn_tech = findViewById(R.id.maintainedOn);
+        problem_desc_tech = findViewById(R.id.problemfixed);
+        submit_tech = findViewById(R.id.submit_report);
+        maintainanceReport = new maintainance();
 
         //Retrieving data from DB
         mdb_Productid       = findViewById(R.id.db_Productid);
@@ -88,6 +90,38 @@ public class Technician extends AppCompatActivity {
             }
         });
 
+        submit_tech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String current_machine = mcustomsearch.getText().toString();
+                databaseReference = firebaseDatabase.getInstance().getReference().child("Product");
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                String dateOfRepair = maintainedOn_tech.getText().toString();
+                String problemDescription = problem_desc_tech.getText().toString();
+
+                if(TextUtils.isEmpty(dateOfRepair)){
+                    Toast.makeText(Technician.this, "Please Enter date", Toast.LENGTH_SHORT).show();
+                }
+                if(TextUtils.isEmpty(problemDescription)){
+                    Toast.makeText(Technician.this, "Please Enter Problem fixed by you", Toast.LENGTH_SHORT).show();
+                }
+                maintainanceReport.setDateOfRepair(dateOfRepair);
+                maintainanceReport.setProblem_description(problemDescription);
+                max = max +1;
+                databaseReference.child(String.valueOf(current_machine)).child(String.valueOf("maintanceRecord")).child(String.valueOf(max)).setValue(maintainanceReport);
+
+            }
+        });
 
     }
 }
