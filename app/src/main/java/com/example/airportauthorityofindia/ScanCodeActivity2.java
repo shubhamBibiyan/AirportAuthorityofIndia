@@ -5,23 +5,22 @@ import android.os.Bundle;
 import com.google.zxing.Result;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class ScanCodeActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler{
+public class ScanCodeActivity2 extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
     ZXingScannerView ScannerView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        ScannerView = new ZXingScannerView(ScanCodeActivity.this);
+        ScannerView = new ZXingScannerView(ScanCodeActivity2.this);
         setContentView(ScannerView);
     }
 
     @Override
-    public void handleResult(Result result) {
-        Technician.resultTextView.setText(result.getText());
+    public void handleResult(Result result2){
+        Management.mgmtresultTextView.setText(result2.getText());
         onBackPressed();
     }
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -31,7 +30,7 @@ public class ScanCodeActivity extends AppCompatActivity implements ZXingScannerV
     @Override
     protected void onResume() {
         super.onResume();
-        ScannerView.setResultHandler(ScanCodeActivity.this);
+        ScannerView.setResultHandler(ScanCodeActivity2.this);
         ScannerView.startCamera();
     }
 }

@@ -56,13 +56,12 @@ public class Technician extends AppCompatActivity {
         mdb_Productdesc     = findViewById(R.id.db_Productdesc);
         mdb_Dateofinstall   = findViewById(R.id.db_Dateofinstall);
         mfind_item          = findViewById(R.id.find_item);
-        mcustomsearch       = findViewById(R.id.result_text);
 
 
         mfind_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String searcheditem = mcustomsearch.getText().toString();
+                String searcheditem = resultTextView.getText().toString();
                 if (TextUtils.isEmpty(searcheditem)) {
                     Toast.makeText(Technician.this, "Please Scan the QR code to get the information", Toast.LENGTH_SHORT).show();
                 }
@@ -71,10 +70,10 @@ public class Technician extends AppCompatActivity {
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            String productid = dataSnapshot.child("ProductID").getValue().toString();
-                            String productname = dataSnapshot.child("ProductName").getValue().toString();
-                            String productDesc = dataSnapshot.child("ProductDesc").getValue().toString();
-                            String productinstall = dataSnapshot.child("InstallDate").getValue().toString();
+                            String productid = dataSnapshot.child("proId").getValue().toString();
+                            String productname = dataSnapshot.child("proName").getValue().toString();
+                            String productDesc = dataSnapshot.child("proDescription").getValue().toString();
+                            String productinstall = dataSnapshot.child("proDoinstall").getValue().toString();
 
                             mdb_Productid.setText(productid);
                             mdb_Productname.setText(productname);
@@ -93,7 +92,7 @@ public class Technician extends AppCompatActivity {
         submit_tech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String current_machine = mcustomsearch.getText().toString();
+                final String current_machine = resultTextView.getText().toString();
                 databaseReference = firebaseDatabase.getInstance().getReference().child("Product");
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override

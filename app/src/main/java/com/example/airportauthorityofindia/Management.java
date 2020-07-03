@@ -35,7 +35,7 @@ public class Management extends AppCompatActivity {
         mgmt_scan_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view){
-                startActivity(new Intent(getApplication(),ScanCodeActivity.class));
+                startActivity(new Intent(getApplication(),ScanCodeActivity2.class));
             }
         });
 
@@ -69,10 +69,10 @@ public class Management extends AppCompatActivity {
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            String productid = dataSnapshot.child("ProductID").getValue().toString();
-                            String productname = dataSnapshot.child("ProductName").getValue().toString();
-                            String productDesc = dataSnapshot.child("ProductDesc").getValue().toString();
-                            String productinstall = dataSnapshot.child("InstallDate").getValue().toString();
+                            String productid = dataSnapshot.child("proId").getValue().toString();
+                            String productname = dataSnapshot.child("proName").getValue().toString();
+                            String productDesc = dataSnapshot.child("proDescription").getValue().toString();
+                            String productinstall = dataSnapshot.child("proDoinstall").getValue().toString();
 
                             mgmtdb_Productid.setText(productid);
                             mgmtdb_Productname.setText(productname);
